@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>panelStaff</title>
+    <link th:href="@{/css/panelStaff.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<div th:replace="~{header.html :: headerFragment}"></div>
+
+
+<form>
+    <h2>Panel Feedback</h2>
+    <div class="forCheckbox">
+        <div class="checkbox_left"><label for="considered">Assessment considered by the moderation panel:</label></div>
+        <div class="checkbox_right"><input type="checkbox" id="considered" name="considered"></div>
+    </div>
+
+
+    <label for="considerationDate">Date when assessment was considered by the moderation panel:</label>
+    <input type="date" id="considerationDate" name="considerationDate">
+
+    <label for="feedback">Feedback from the assessment panel and actions to be done:</label>
+    <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+
+    <div class="forCheckbox">
+        <div class="checkbox_left"><label for="notifiedModeratorSetter">Moderator and setter notified of panel feedback:</label></div>
+        <div class="checkbox_right"><input type="checkbox" id="notifiedModeratorSetter" name="notifiedModeratorSetter"></div>
+    </div>
+
+    <label for="notificationDate">Date when notification to moderator and setter was completed:</label>
+    <input type="date" id="notificationDate" name="notificationDate">
+
+    <div class="forCheckbox">
+        <div class="checkbox_left"><label for="notifiedModuleLeader">Module leader notified of panel feedback:</label></div>
+        <div class="checkbox_right"><input type="checkbox" id="notifiedModuleLeader" name="notifiedModuleLeader"></div>
+    </div>
+
+    <label for="moduleLeaderNotificationDate">Date when notification to module leader was completed:</label>
+    <input type="date" id="moduleLeaderNotificationDate" name="moduleLeaderNotificationDate">
+
+    <label for="assessmentStatus">Assessment Status:</label>
+    <select id="assessmentStatus" name="assessmentStatus">
+        <option value="approved">Assessment approved</option>
+        <option value="approvedWithMinorModification">Assessment approved subject to minor modification</option>
+        <option value="reconsider">Assessment to be reconsidered in light of comments</option>
+        <option value="resendForReview">Assessment to be re-sent to panel after modification</option>
+    </select>
+
+    <br>
+
+    <input type="button" value="Save" id="saveFeedback">
+    <input class="back" type="button" value="Back">
+</form>
+<script async th:src="@{/js/panelStaff.js}"></script>
+<div th:replace="~{footer.html :: footerFragment}"></div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.assessment.comsc.mapper.ExternalFormMapper">
+
+
+
+    <insert id="insert" parameterType="com.assessment.comsc.entity.ExternalForm">
+        INSERT INTO external_form (assessmentId, userId, assessmentStatus, feedback, feedbackDate)
+        VALUES (#{assessmentId}, #{userId}, #{assessmentStatus}, #{feedback}, #{feedbackDate})
+    </insert>
+
+
+    <select id="selectExternalFormById" resultType="com.assessment.comsc.entity.ExternalForm">
+        SELECT * FROM external_form WHERE assessmentId = #{assessmentId}
+    </select>
+
+
+
+</mapper>
+

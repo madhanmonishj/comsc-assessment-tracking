@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+
+</head>
+
+<body>
+
+<div th:replace="~{header.html :: headerFragment}"></div>
+
+<div class="main-content" th:fragment="loginFragment">
+    <div class="login-container">
+        <div class="login-form">
+            <div class="login-form-header">
+                <h2>Login</h2>
+            </div>
+            <div th:if="${param.error}" class="alert alert-danger">
+                <p th:text="${session.errorMessage}">Incorrect account or password</p>
+            </div>
+            <form id="loginForm" th:action="@{/loginPage}" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" onclick="togglePasswordVisibility()" class="toggle-password">Show Password</button>
+                </div>
+
+<!--                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
+                <button type="submit">Login</button>
+
+            </form>
+            <div class="login-form-footer">
+                <p>By logging in, you agree to the platform's Privacy Policy and User Agreement</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="~{footer.html :: footerFragment}"></div>
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module Leader Form</title>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/header.css}" />
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/rsInterModer.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main-content" th:fragment="moduleSetterFormFragment">
+    <div th:replace="~{header :: headerFragment}"></div>
+    <div class="form-container">
+    <div class="module-setter-form">
+      <div class="form-header">
+        <h2>Response to internal moderation</h2>
+      </div>
+      <form id="moduleSetterForm" th:action="@{/moduleSetterForm}" method="post">
+        <!-- Response to Moderator’s Comments -->
+        <div class="form-group">
+          <label for="responseToModerator">Response to moderator‘s comments :</label>
+          <textarea id="responseToModerator" name="responseToModerator" required></textarea>
+        </div>
+
+        <!-- Edits Made and Assessment Placement -->
+        <div class="form-group">
+          <label for="editsMade" class="checkbox-label" >Edits made and assessment placed in assessment team area:
+          <input type="checkbox" id="editsMade" name="editsMade">
+          </label>
+<br>
+          <label for="dateCompleted">Date completed:</label>
+          <input type="date" id="dateCompleted" name="dateCompleted" required>
+        </div>
+<br>
+        <!-- Notification to Moderation Panel -->
+        <div class="form-group">
+          <label for="moderationPanelNotified" class="checkbox-label" >Assessment moderation panel notified:
+          <input type="checkbox" id="moderationPanelNotified" name="moderationPanelNotified">
+          </label>
+          <br>
+
+          <label for="dateNotified">Date notified:</label>
+          <input type="date" id="dateNotified" name="dateNotified" required>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+    <div th:replace="~{footer :: footerFragment}"></div>
+</div>
+
+</body>
+<script src="/js/rsInterModer.js"></script>
+
+</html>

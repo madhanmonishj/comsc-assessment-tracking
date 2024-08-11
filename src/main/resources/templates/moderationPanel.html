@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Internal Moderator Comments</title>
+    <link href="/css/moderationPanel.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header th:replace="~{header.html :: headerFragment}">
+
+    </header>
+
+    <section class="mainContent">
+
+        <br><h2>Moderation Panel Comments</h2><br>
+        <section>
+            <table id="assessmentTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Statement</th>
+                        <th>Yes</th>
+                        <th>No</th>
+                    </tr>
+                </thead>
+
+                <tbody id="checklist">
+
+                </tbody>
+            </table><br>
+        </section>
+
+        <section>
+            <label for="comments">Comments on any actions required:</label>
+            <textarea style="width: 50%;" class="form-control" id="comments" rows="4"></textarea><br>
+        </section>
+
+        <section id="scrutiny" class="form-group">
+            <label for="isScrutiny">Does the assessment differ sufficiently from last year’s to require scrutiny by the
+                moderation panel?</label>
+            <section class="form-check">
+                <input type="checkbox" class="form-check-input" id="isScrutiny_yes" name="isScrutiny_yes">
+                <label class="form-check-label" for="isScrutiny_yes">Yes</label>
+            </section>
+
+            <section class="form-check">
+                <input type="checkbox" class="form-check-input" id="isScrutiny_no" name="isScrutiny_no">
+                <label class="form-check-label" for="isScrutiny_no">No</label>
+            </section>
+        </section>
+
+        <section class="form-group">
+            <label for="assessmentPassed">Assessment moderated and passed to module leader</label>
+            <input type="checkbox" id="assessmentPassed" name="assessmentPassed">
+        
+            <label for="dateCompleted">Date completed:</label>
+            <input type="date" id="dateCompleted" name="dateCompleted">
+        </section>
+        
+        <section class="mt-4 submit">
+            <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            <button type="button" class="btn btn-secondary" onclick="cancelEvent()">Back</button>
+        </section><br>
+
+    </section>
+
+    <footer th:replace="~{footer.html :: footerFragment}">
+
+    </footer>
+</body>
+<foot>
+    <script type="text/javascript" src="/js/moderationPanel.js"></script>
+</foot>
+
+</html>

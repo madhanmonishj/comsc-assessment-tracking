@@ -1,0 +1,16 @@
+.usersGrid {
+    width: 1000px;
+    padding-left: 8%;
+    padding-bottom: 50px;
+}
+
+.submit {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}

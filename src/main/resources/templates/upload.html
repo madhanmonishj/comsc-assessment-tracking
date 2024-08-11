@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>panelStaff</title>
+    <link th:href="@{/css/uploadPage.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ajax request to fetch data from the backend
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/fetchAssessments", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var assessments = JSON.parse(xhr.responseText);
+
+                    // Populate the dropdown with assessment names
+                    var select = document.getElementById("assessmentSelect");
+                    assessments.forEach(function (assessment) {
+                        var option = document.createElement("option");
+                        option.value = assessment.assessment_id;
+                        option.text = assessment.module_name;
+                        select.appendChild(option);
+                    });
+                }
+            };
+            xhr.send();
+        });
+
+        function uploadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            var assessmentSelect = document.getElementById('assessmentSelect');
+            var selectedAssessmentId = assessmentSelect.value;
+
+            var formData = new FormData();
+            formData.append('file', file);
+            formData.append('assessmentId', selectedAssessmentId);
+
+            //this address is Fixed to upload file.
+            fetch('http://localhost:8080/file/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+<div class="mainContent">
+
+    <h2>Assessment Upload</h2>
+
+
+    <div class="upload-list">
+        <label for="assessmentSelect">Select Assessment:</label>
+        <select id="assessmentSelect"></select>
+    </div>
+
+
+    <div class="upload-section">
+        <input type="file" id="fileInput"/>
+        <button onclick="uploadFile()">Upload File</button>
+    </div>
+
+
+</div>
+
+</body>
+</html>

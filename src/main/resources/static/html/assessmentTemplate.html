@@ -1,0 +1,26 @@
+<!-- Templates for progress bar -->
+<div class="module">
+    <h3 class="header"></h3>
+    <ul class="assessment">
+        <li class="assessmemtName"></li>
+        <li class="statusContainer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 p-2 align-items-center whole-buttons-container">
+                        <div class="d-flex justify-content-around" id="buttons-container">
+                        <!-- buttons will be appended in javascript -->
+                        </div>
+                        <div class="d-flex justify-content-around" id="buttons-container1">
+                            <!-- buttons will be appended in javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

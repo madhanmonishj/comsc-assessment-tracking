@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Assessment</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="/css/assessmentDetails.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header Section replaced by thymeleaf -->
+    <header th:replace="~{header.html :: headerFragment}">
+       
+    </header>
+
+    <section class="assessmentDiv" id="assessmentDetails">
+
+        <article id="moduleInfoContainer">
+            <section>
+                <!-- Module Details Section -->
+                <h3 class="mb-3">Module Details</h3>
+                <dl class="row">
+                    <dt class="col-sm-3">Module Code:</dt>
+                    <dd class="col-sm-9" id="moduleCode"></dd>
+
+                    <dt class="col-sm-3">Module Title:</dt>
+                    <dd class="col-sm-9" id="moduleTitle"></dd>
+                </dl>
+
+                <!-- Assessment Details Section -->
+                <section>
+                    <h3 class="mb-3">Assessment Details</h3>
+                    <dl class="row">
+                        <dt class="col-sm-3">Assessment Name:</dt>
+                        <dd class="col-sm-9" id="assessmentName"></dd>
+
+                        <dt class="col-sm-3">Assessment Status:</dt>
+                        <dd class="col-sm-9" id="assessmentStatus"></dd>
+                    </dl>
+                </section>
+
+                <!-- Assigned Users Section -->
+                <section>
+                    <h3 class="mb-3">Assigned Users</h3>
+                    <dl class="row">
+                        <dt class="col-sm-3">Internal Moderator:</dt>
+                        <dd class="col-sm-5">
+                            <select class="form-control" id="internalModerator">
+                                <option value="0">Select</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-3">External Examiner:</dt>
+                        <dd class="col-sm-5">
+                            <select class="form-control" id="externalExaminer">
+                                <option value="0">Select</option>
+                            </select>
+                        </dd>
+                        <dd class="col-sm-3">
+                            <!-- Button to send email -->
+                            <button type="button" class="btn btn-primary" onclick="sendEmail()">Send Email</button>
+                        </dd>
+                    </dl>
+                </section>
+            </section>
+        </article>
+
+        <!-- Submit Section -->
+        <section class="mt-4 submit">
+            <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            <button type="button" class="btn btn-secondary" onclick="backForm()">Back</button>
+        </section><br>
+
+    </section>
+
+     <!-- Footer Section replaced by thymeleaf -->
+    <footer th:replace="~{footer.html :: footerFragment}">
+
+    </footer>
+
+</body>
+
+<foot>
+    <script type="module" async th:src="@{/js/utils.js}"></script>
+    <script type="module" async th:src="@{/js/assessmentDetails.js}"></script>
+</foot>
+
+</html>

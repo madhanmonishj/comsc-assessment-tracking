@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.assessment.comsc.mapper.ModuleLeaderMapper">
+
+    <insert id="insert" parameterType="com.assessment.comsc.entity.ModuleLeaderForm">
+        INSERT INTO module_leader_form (assessmentId, userId, feedback, editsMade, completedDate, panelNotify, notifyDate)
+        VALUES (#{assessmentId}, #{userId}, #{feedback}, #{editsMade}, #{completedDate}, #{panelNotify}, #{notifyDate})
+    </insert>
+
+    <update id="update" parameterType="com.assessment.comsc.entity.ModuleLeaderForm">
+        UPDATE tracker SET assessment_status = 'MOD_PAN_C' WHERE id = #{assessmentId}
+    </update>
+
+</mapper>

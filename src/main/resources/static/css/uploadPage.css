@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+body > form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.upload-section {
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 50px;
+}
+
+.upload-list {
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 50px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/availabilityForm.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div th:replace="~{header.html :: headerFragment}"></div>
+
+    <div class="mainForm">
+        <form id="availabilityForm">
+            <h2 style="padding-left: 20%;">Assessment availability form</h2>
+            <div class="text">Whether the moderator has been notified</div>
+            <div class="UserInput">
+                <div class="left">
+                    <input class="checkbox" type="checkbox" name="Notified"><span>Notified</span>
+                </div>
+                <div class="right">
+                    <input class="checkbox" type="checkbox" name="NotNotified"><span>Not Notified</span>
+                </div>
+            </div>
+
+            <div class="text">Whether the last year's copy has been provided by the setter</div>
+            <div class="UserInput">
+                <div class="left">
+                    <input class="checkbox" type="checkbox" name="Checked"><span>Checked</span>
+                </div>
+                <div class="right">
+                    <input class="checkbox" type="checkbox" name="unChecked"><span>Unchecked</span>
+                </div>
+            </div>
+
+            <div class="text">Date:</div>
+            <div class="UserInput">
+                <input class="details" type="date" name="date" id="date">
+            </div>
+
+            <div class="text">Tracking Plan Details:</div>
+            <div class="UserInput">
+                <div class="usbDetails">
+                    Estimated marking times:</br> <input class="details" type="text" name="markingTimes" id="times">
+                </div>
+                <div class="usbDetails">
+                    Total number of students:</br> <input class="details" type="number" name="stuNum" id="stuNum">
+                </div>
+                <div class="usbDetails">
+                    Available marking dates:</br> <input class="details" type="date" name="MarkDates" id="markDates">
+                </div>
+                <div class="usbDetails">
+                    Confirmation of meeting the deadline:</br> <input class="details" type="text" name="Deadline"
+                        id="deadline">
+                </div>
+            </div>
+
+            <div class="text">Summary of Changes:</div>
+            <div class="UserInput">
+                <textarea name="summaryChanges" rows="10" cols="100" id="summary"></textarea>
+            </div><br>
+
+            <div>
+                <button type="submit" onclick="saveData(event)">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script async th:src="@{/js/availabilityForm.js}"></script>
+    <div th:replace="~{footer.html :: footerFragment}"></div>
+</body>
+
+</html>

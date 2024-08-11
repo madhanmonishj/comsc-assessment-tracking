@@ -1,0 +1,31 @@
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    position: fixed;
+    background: #333; /* Background color for the footer */
+    color: #fff; /* Text color for the footer */
+    width: 100%;
+    bottom: 0;
+    position:fixed;
+    left: 0;
+    height: 40px;
+    z-index: 10;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    margin: 0 20px; /* Space between footer items */
+}
+
+.footer-item img {
+    margin-right: 10px; /* Space after the icon */
+    width: 24px; /* Icon width */
+    height: 24px; /* Icon height */
+}
+
+.footer-item span {
+    margin-right: 20px; /* Space after the span if necessary */
+}

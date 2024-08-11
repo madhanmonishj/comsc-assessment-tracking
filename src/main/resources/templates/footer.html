@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer Fragment</title>
+    <link href="/css/footer.css" rel="stylesheet" />
+</head>
+<body>
+<footer th:fragment="footerFragment">
+    <link href="/css/footer.css" rel="stylesheet" />
+
+    <div class="footer-content">
+        <div class="footer-item">
+            <img th:src="@{/images/phone.jpeg}" alt="Phone Icon" />
+            <span>(+44) 029 2087 4000</span>
+        </div>
+        <div class="footer-item">
+            <img th:src="@{/images/email.jpg}" alt="Email Icon"/>
+            <span>cardiff@comsc.ac.uk</span>
+        </div>
+        <div class="footer-item">
+            <img th:src="@{/images/location.jpg}" alt="Location Icon"/>
+            <span>Cardiff University,Cardiff,Wales,CF10 3AT UK</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

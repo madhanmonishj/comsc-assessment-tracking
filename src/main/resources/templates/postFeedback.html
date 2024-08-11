@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Form</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/postFeedback.css}" />
+
+</head>
+
+<body>
+
+<div th:replace="~{header.html :: headerFragment}"></div>
+<div class="container">
+  <h1>Assessment Form</h1>
+  <br>
+  <form id="assessmentForm">
+
+    <div class="form-group">
+      <label for="scoreDate">Completion Date for Score:</label>
+      <input type="date" id="scoreDate" name="scoreDate" required>
+    </div>
+
+
+    <div class="form-group">
+      <label for="feedbackDate">Completion Date for Feedback:</label>
+      <input type="date" id="feedbackDate" name="feedbackDate" required>
+    </div>
+
+
+    <div class="form-group">
+      <label for="score">Assessment Score:</label>
+      <input type="number" id="score" name="score" required>
+    </div>
+
+
+    <div class="form-group">
+      <label>Assessment feedback released to students</label>
+      <input type="checkbox" id="assessmentFeedbackReleased" name="assessmentFeedbackReleased">
+      <label for="dateAssessmentFeedbackReleased">Date completed:</label>
+      <input type="date" id="dateAssessmentFeedbackReleased" name="dateAssessmentFeedbackReleased">
+    </div>
+
+    <div class="form-group">
+      <label>Assessment marks entered into Learning Central</label>
+      <input type="checkbox" id="assessmentMarksEntered" name="assessmentMarksEntered">
+      <label for="dateAssessmentMarksEntered">Date completed:</label>
+      <input type="date" id="dateAssessmentMarksEntered" name="dateAssessmentMarksEntered">
+    </div>
+
+    <div class="form-group">
+      <label>Assessment marks transferred from Learning Central into SIMS</label>
+      <input type="checkbox" id="assessmentMarksTransferred" name="assessmentMarksTransferred">
+      <label for="dateAssessmentMarksTransferred">Date completed:</label>
+      <input type="date" id="dateAssessmentMarksTransferred" name="dateAssessmentMarksTransferred">
+    </div>
+
+    <div class="form-group">
+      <label>Assessment feedback entered into Learning Central</label>
+      <input type="checkbox" id="assessmentFeedbackEntered" name="assessmentFeedbackEntered">
+      <label for="dateAssessmentFeedbackEntered">Date completed:</label>
+      <input type="date" id="dateAssessmentFeedbackEntered" name="dateAssessmentFeedbackEntered">
+    </div>
+
+
+    <div class="form-group">
+      <label>Cohort feedback returned to students</label>
+      <input type="checkbox" id="cohortFeedbackReturned" name="cohortFeedbackReturned">
+      <label for="dateCohortFeedbackReturned">Date completed:</label>
+      <input type="date" id="dateCohortFeedbackReturned" name="dateCohortFeedbackReturned">
+    </div>
+
+    <div class="form-group">
+      <label for="feedback">Assessment Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="4" required></textarea>
+    </div>
+
+
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+
+    <button id="calculateStatsBtn" type="button">Score</button>
+    <div id="dialog" style="display: none;">
+      <div id="calculateStatsResult">
+        <p id="averageScore"></p>
+        <p id="minScore"></p>
+        <p id="maxScore"></p>
+        <button id="closeDialog">Close</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div th:replace="~{footer.html :: footerFragment}"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script th:src="@{/js/postFeedback.js}"></script>
+</body>
+</html>

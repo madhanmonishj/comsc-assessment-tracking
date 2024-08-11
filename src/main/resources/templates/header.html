@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header Fragment</title>
+</head>
+<body>
+<header th:fragment="headerFragment">
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var logoutButton = document.getElementById('logoutButton');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function() {
+                    // Clear all cookies
+                    document.cookie.split(";").forEach(function(c) {
+                        document.cookie = c.trim().split("=")[0] + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                    });
+
+                    // Redirect to login page
+                    window.location.href = '/loginPage';
+                });
+            }
+        });
+    </script>
+
+    <div class="header-content">
+        <div class="logo">
+            <img th:src="@{/images/cardiff_logo.jpg}" alt="University Logo">
+        </div>
+        <div class="project-name">
+            COMSC Assessment Tracking System
+        </div>
+        <div class = "logout">
+            <button id="logoutButton">Log out</button>
+        </div>
+    </div>
+
+</header>
+
+</body>
+</html>

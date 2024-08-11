@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Users</title>
+
+    <!-- ag-Grid -->
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-theme-alpine.css">
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="/css/usersGrid.css" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+</head>
+
+<body>
+    <h2> List of Users </h2>
+    <section class="usersGrid">
+        <!-- Buttons for adding and going back -->
+        <section class="submit">
+            <button type="button" class="btn btn-primary" onclick="changeForm()">Add</button>
+        </section><br>
+
+        
+        <section class="ag-theme-alpine" id="usersGrid" style="height: 500px; width: 100%;">
+            <!-- ag-Grid grid will be populated here -->
+        </section>
+    </section>
+
+    <script type="text/javascript" src="/js/usersGrid.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Response to Moderation Panel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/moderatorResponse.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}" />
+</head>
+<body>
+
+<div th:replace="~{header.html :: headerFragment}"></div>
+<div class="main-content">
+    <h2>Response to Moderation Panel</h2>
+
+    <form id="moderationForm">
+        <label for="feedback">Response to assessment panel feedback and actions:</label>
+        <textarea id="feedback" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+
+        <div class="forCheckbox">
+            <div class="checkbox_left">
+                <label for="editMade">Edits made and updated assessment placed in Assessment Team by setter</label>
+            </div>
+            <div class="checkbox_right">
+                <input type="checkbox" id="editMade" />
+            </div>
+        </div>
+
+        <label for="dateCompleted">Date Completed:</label>
+        <input type="date" id="dateCompleted" />
+
+        <div class="forCheckbox">
+            <div class="checkbox_left">
+                <label for="assessmentSent">Assessment sent to external examiner (IF Required):</label>
+            </div>
+            <div class="checkbox_right">
+                <input type="checkbox" id="assessmentSent" />
+            </div>
+        </div>
+
+        <label for="dateSent">Date Sent:</label>
+        <input type="date" id="dateSent" />
+
+        <input type="button" value="Save" id="saveFeedback">
+    </form>
+</div>
+<div th:replace="~{footer.html :: footerFragment}"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script th:src="@{/js/moderatorResponse.js}"></script>
+</body>
+</html>
+

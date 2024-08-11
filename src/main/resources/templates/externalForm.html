@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>panelStaff</title>
+    <link th:href="@{/css/externalForm.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#saveFeedback").click(function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Get form data
+                var formData = {
+                    assessmentStatus: $("#assessmentStatus").val(),
+                    feedback: $("#feedback").val(),
+                    feedbackDate: $("#feedbackDate").val(),
+                    assessmentId: decodeURIComponent(new URLSearchParams(window.location.search).get("id")) || 0
+                };
+
+
+                // Send AJAX request
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/external/saveForm",
+                    data: JSON.stringify(formData),
+                    success: function (data) {
+                        alert("Form saved successfully");
+                        window.history.back();
+                    },
+                    error: function (error) {
+                        console.error("Error saving form data: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="mainContent">
+<div th:replace="~{header.html :: headerFragment}"></div>
+<h2>External Examiner Feedback</h2>
+
+<form>
+
+    //form detail could refer the document provided by client.
+    <label for="assessmentStatus">Assessment Status:</label>
+    <select id="assessmentStatus" name="assessmentStatus">
+        <option value="0">Assessment approved</option>
+        <option value="1">Assessment approved subject to minor modification</option>
+        <option value="2">Assessment to be reconsidered in light of comments</option>
+        <option value="3">Assessment to be re-sent to panel after modification</option>
+    </select>
+
+    <label for="feedback">Feedback from the external examiner and actions required:</label>
+    <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+
+    <label for="feedbackDate">Date completed</label>
+    <input type="date" id="feedbackDate" name="feedbackDate">
+
+
+
+    <br>
+
+    <input type="submit" value="Save" id="saveFeedback">
+</form>
+<div th:replace="~{footer.html :: footerFragment}"></div>
+</body>
+</html>

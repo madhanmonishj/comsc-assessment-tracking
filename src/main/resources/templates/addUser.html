@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>User</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="/css/addUser.css" rel="stylesheet" />
+
+    <!-- Select2 Multiselect-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+</head>
+
+<body>
+    <!-- Header Section replaced by thymeleaf -->
+    <header th:replace="~{header.html :: headerFragment}"></header>
+
+    <!-- Main Content Section -->
+    <section class="admin" id="dashboardContainer">
+        <h2 id="header"></h2>
+
+        <form>
+            <!-- User Name Input -->
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" id="userName" placeholder="User Name">
+            </div>
+
+            <!-- First Name Input -->
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+
+            <!-- Last Name Input -->
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <!-- Date of Birth Input -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob">
+            </div>
+
+            <!-- User Roles Multiselect -->
+            <div class="form-group role">
+                <label for="userRoles">User Roles</label>
+                <select id="multiselect" multiple="multiple">
+                    <option value="ModLeader">Module Leader</option>
+                    <option value="psStaff">Panel Moderator</option>
+                    <option value="intModerator">Internal Moderator</option>
+                    <option value="extModerator">External Moderator</option>
+                </select>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="emailId">Email address</label>
+                <input type="email" class="form-control" id="emailId" placeholder="Enter email">
+            </div>
+
+            <!-- Submission Buttons -->
+            <section class="mt-4 submit">
+                <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+                <button type="button" class="btn btn-secondary" onclick="backForm()">Back</button>
+            </section><br>
+        </form>
+
+    </section>
+
+    <!-- Footer Section replaced by thymeleaf -->
+    <footer th:replace="~{footer.html :: footerFragment}"></footer>
+    <script async th:src="@{/js/addUser.js}"></script>
+
+</body>
+
+</html>
